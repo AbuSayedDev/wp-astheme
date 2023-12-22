@@ -15,6 +15,9 @@ function astheme_css_js_file_calling(){
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '5.0.2', 'all' );
     wp_enqueue_style( 'custom', get_template_directory_uri() . '/assets/css/custom.css', array(), '1.0.0', 'all' );
 
+    //Google font
+    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap', false );
+
     // wp enqueue scripts
     wp_enqueue_script('jquery');
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), '5.0.2', 'true');
@@ -39,7 +42,6 @@ function astheme_customizar_register($we_customize){
         'description' => 'If you interested to change or update your logo you can do it.',
         'section' => "astheme_header_area",
         'setting' => 'astheme_logo'
-
     ) ));
 }
 add_action( 'customize_register', 'astheme_customizar_register');
