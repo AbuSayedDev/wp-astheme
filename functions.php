@@ -4,8 +4,23 @@
 * My Theme Function
 */
 
-//Theme Title
-add_theme_support('title-tag');
+
+//Theme Support Function
+function astheme_support(){
+    //Theme Title
+    add_theme_support('title-tag');
+
+    //Menu Register
+    register_nav_menus( array(
+        'primary_menu' => __('Primary Menu', 'astheme'),
+        'Mobile_menu' => __('Mobile Menu', 'astheme'),
+        'footer_menu' => __('Footer Menu', 'astheme')
+    ) );
+}
+add_action( 'after_setup_theme', 'astheme_support');
+
+
+
 
 //Theme CSS and JQuery File calling
 function astheme_css_js_file_calling(){
@@ -15,7 +30,7 @@ function astheme_css_js_file_calling(){
     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '5.0.2', 'all' );
     wp_enqueue_style( 'custom', get_template_directory_uri() . '/assets/css/custom.css', array(), '1.0.0', 'all' );
 
-    //Google font
+    //Google fonts
     wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap', false );
 
     // wp enqueue scripts
