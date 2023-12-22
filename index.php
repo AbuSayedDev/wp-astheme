@@ -27,7 +27,17 @@
                         <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                            <ul class="navbar-nav mb-2 mb-lg-0 ">
+
+                        <?php wp_nav_menu( array(
+                            'theme_location' => 'primary_menu',
+                            'container' => false,
+                            'menu_class' => '',
+                            'fallback_cb' => '__return_false',
+                            'items_wrap' => '<ul id="bootstrap-navbar" class="navbar-nav mb-2 mb-lg-0 %2$s">%3$s</ul>',
+                            'depth' => 2,
+                            'walker' => new bootstrap_5_wp_nav_menu_walker()
+                        ) ); ?>
+                            <!-- <ul class="navbar-nav mb-2 mb-lg-0 ">
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                                 </li>
@@ -48,7 +58,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Contact Us</a>
                                 </li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
                 </nav>
