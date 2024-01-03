@@ -27,5 +27,35 @@ a {
 }
 
 /*===========================
-Header CSS
+Header Menu CSS
 ============================*/
+#navarea.left_menu .col-md-3 {
+    order: 2;
+    text-align: right;
+}
+
+#navarea.left_menu .col-md-9 {
+    order: 1;
+}
+
+#navarea.left_menu .col-md-9 #navbarSupportedContent {
+    justify-content: start !important;
+}
+
+/* #navarea.center_menu .container-fluid {
+    justify-content: center;
+} */
+
+#navarea.center_menu .col-md-3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#navarea.center_menu .col-md-9 {
+    width: 100%;
+}
+
+/* #navarea.center_menu #navbarSupportedContent {
+    justify-content: center !important;
+}  */
