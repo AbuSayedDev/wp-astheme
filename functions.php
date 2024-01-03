@@ -39,27 +39,48 @@ add_action('wp_enqueue_scripts', 'astheme_css_js_file_calling');
 
 
 // Theme Function
-function astheme_customizar_register($we_customize){
-    $we_customize->add_section('astheme_header_area', array(
+function astheme_customizar_register($wp_customize){
+
+    //Header Area
+    $wp_customize->add_section('astheme_header_area', array(
         'title'       => __('Header Area', 'astheme'),
         'description' => 'If you interested to update your header area, you can do it here.'
     ));
 
-    $we_customize->add_setting('astheme_logo', array(
+    $wp_customize->add_setting('astheme_logo', array(
         'default' =>  get_bloginfo( 'template_directory' ) . '/assets/img/Logo.png'
     ));
 
-    $we_customize->add_control(new WP_Customize_Image_Control($we_customize, 'astheme_logo', array(
-        'label' => 'Logo Upload',
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'astheme_logo', array(
+        'label'       => 'Logo Upload',
         'description' => 'If you interested to change or update your logo you can do it.',
-        'section' => "astheme_header_area",
-        'setting' => 'astheme_logo'
+        'section'     => "astheme_header_area",
+        'setting'     => 'astheme_logo'
     ) ));
+
+    //Menu Position Option
+    $wp_customize->add_section('astheme_menu_option', array(
+      'title'       => __('Menu Position Option', 'astheme'),
+      'description' => 'If you interested to change your menu position area, you can do it here.'
+    ));
+
+    $wp_customize->add_setting('astheme_menu_position', array(
+        'default' => 'right_menu',
+    ));
+
+    $wp_customize->add_control('astheme_menu_position', array(
+      'lebel'         => 'Menu Position',
+      'description'   => 'Select your menu position.',
+      'section'       => 'astheme_menu_option',
+      'setting'       => 'astheme_menu_position',
+      'type'          => 'radio',
+      'choices'       => array(
+        'right_menu'  => 'Right Menu',
+        'left_menu'   => 'Left Menu',
+        'center_menu' => 'Center Menu',
+      )) );
 }
 add_action( 'customize_register', 'astheme_customizar_register');
-
-
-
 
 
 
